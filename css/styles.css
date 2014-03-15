@@ -1,0 +1,41 @@
+html, body{
+    height: 100%;
+    width: 100%;
+}
+.menu-item a{
+    text-decoration: none;
+    color: red;
+
+}
+.menu-item a:active{
+    color: red;
+
+}
+.menu-item a:hover{
+    color: red;
+}
+
+.menu-item{
+    padding-left: 0;
+    /*display: inline-block;*/
+    position: absolute;
+    width: 0;
+    overflow: hidden;
+}
+.main-menu{
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    margin-left: 50%;
+    left: -30px;
+    bottom: 0;
+    list-style: none;
+    background-image: url(../img/menu.png);
+    cursor: pointer;
+}
+
+#menu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
