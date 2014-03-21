@@ -1,7 +1,3 @@
-html, body{
-    height: 100%;
-    width: 100%;
-}
 .menu-item a{
     text-decoration: none;
     color: red;
@@ -25,12 +21,12 @@ html, body{
 .main-menu{
     position: fixed;
     width: 60px;
-    height: 60px;
+    height: 30px;
     margin-left: 50%;
     left: -30px;
     bottom: 0;
     list-style: none;
-    background-image: url(../img/menu.png);
+    /*background-image: url(../img/menu.png);*/
     cursor: pointer;
 }
 
@@ -38,4 +34,31 @@ html, body{
     list-style: none;
     margin: 0;
     padding: 0;
+}
+.menu-button{
+    position: absolute;
+    width:60px;
+    height: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border: 1px solid black;
+    background-color: indianred;
+    cursor: pointer;
+}
+.stripe{
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background-color: gold;
+    left: 15px;
+    border-radius: 2px;
+}
+.first{
+    top: 9px;
+}
+.second{
+    top: 15px;
+}
+.third{
+    top: 21px;
 }
