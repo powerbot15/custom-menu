@@ -1,9 +1,21 @@
 define('menu-item-class', ['jquery'], function($){
 
     function MenuItem(degreeToTurn, radius, element){
+        var rComponentText = getRandomInt(127, 255),
+            gComponentText = getRandomInt(127, 255),
+            bComponentText = getRandomInt(127, 255),
+            rComponentBackgr = 255 - rComponentText,
+            gComponentBackgr = 255 - gComponentText,
+            bComponentBackgr = 255 - bComponentText;
         this.degree = degreeToTurn;
         this.radius = radius;
         this.jQueryDOMElement = element;
+        this.jQueryDOMElement.css({
+            'background-color' : 'rgb(' + rComponentBackgr + ',' + gComponentBackgr + ',' + bComponentBackgr + ')'
+
+
+        });
+        this.jQueryDOMElement.find('a').css({'color' : 'rgb(' + rComponentText + ',' + gComponentText + ',' + bComponentText + ')'});
         this.jQueryDOMElement.storedWidth = element.width();
         this.jQueryDOMElement.storedHeight = element.height();
         this.jQueryDOMElement.storedZIndex = element.get(0).style.zIndex;
@@ -51,5 +63,9 @@ define('menu-item-class', ['jquery'], function($){
             });
         }, 500);
     };
+    function getRandomInt(min, max){
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
     return MenuItem;
 });
