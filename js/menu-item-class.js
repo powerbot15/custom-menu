@@ -7,14 +7,15 @@ define('menu-item-class', ['jquery'], function($){
         this.jQueryDOMElement.storedWidth = element.width();
         this.jQueryDOMElement.storedHeight = element.height();
         this.jQueryDOMElement.storedZIndex = element.get(0).style.zIndex;
-        this.jQueryDOMElement.storedLeft = element.get(0).style.left;
         this.checkPosition();
     }
 
     MenuItem.prototype.checkPosition= function(){
         console.log(this.degree);
-        if(this.degree > 45){
-            //TODO turn menu-item
+        if(this.degree > 90){
+            this.jQueryDOMElement.find('a').css({
+                'transform' : 'rotate(180deg)'
+            });
         }
         else{
 
@@ -25,10 +26,10 @@ define('menu-item-class', ['jquery'], function($){
         this.jQueryDOMElement.css({
             'width' : '150px',
             'z-index' : '1000',
-            '-webkit-transition' : '-webkit-transform 0.5s linear 0s',
-            '-moz-transition' : '-moz-transform 0.5s linear 0s',
-            '-ms-transition' : '-ms-transform 0.5s linear 0s',
-            '-o-transition' : '-o-transform 0.5s linear 0s',
+            '-webkit-transition' : '-webkit-transform 0.5s ease-out 0s',
+            '-moz-transition' : '-moz-transform 0.5s ease-out 0s',
+            '-ms-transition' : '-ms-transform 0.5s ease-out 0s',
+            '-o-transition' : '-o-transform 0.5s ease-out 0s',
             'transform-origin' : (-this.radius) + 'px 50%',
             'transform' : transformString
         });

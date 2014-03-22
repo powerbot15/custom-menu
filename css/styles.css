@@ -54,6 +54,7 @@
     border: 1px solid black;
     background-color: indianred;
     cursor: pointer;
+    z-index: 1100;
 }
 .stripe{
     position: absolute;

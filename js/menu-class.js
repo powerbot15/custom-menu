@@ -10,7 +10,7 @@ define('menu-class', ['jquery', 'menu-item-class'], function($, MenuItem){
         var items = $('.menu-item'),
             countItems = items.length,
             degreeToTurn = 180 / (countItems - 1),
-            circleRadius = (items.eq(0).height()*countItems)/Math.PI + 20,
+            circleRadius = ((items.eq(0).height()+10)*countItems)/Math.PI + 20,
             i;
 
         for(i = 0; i < items.length; i++){
