@@ -1,6 +1,10 @@
 .menu-item a{
+    display: block;
     text-decoration: none;
+    font-size: 16pt;
     color: red;
+    text-align: center;
+    vertical-align: middle;
 
 }
 .menu-item a:active{
@@ -12,11 +16,16 @@
 }
 
 .menu-item{
-    padding-left: 0;
     /*display: inline-block;*/
+    background-color: bisque;
+    padding: 5px;
+    border-radius: 15px;
     position: absolute;
     width: 0;
+    height: 30px;
     overflow: hidden;
+    bottom: 0;
+    left: 50%;
 }
 .main-menu{
     position: fixed;
