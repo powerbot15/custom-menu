@@ -1,0 +1,14 @@
+{
+  "name": "custom-menu",
+  "version": "0.0.1",
+  "homepage": "https://github.com/powerbot15/custom-menu",
+  "authors": [
+    "Oleh Kastornov <powerbot15@gmail.com>"
+  ],
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "requirejs": "~2.1.11"
+  }
+}
