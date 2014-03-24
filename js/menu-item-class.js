@@ -1,13 +1,16 @@
 define('menu-item-class', ['jquery'], function($){
 
     function MenuItem(degreeToTurn, radius, element){
-        var rComponentText = getRandomInt(127, 255),
+        var rComponentText = 0,//getRandomInt(127, 255),
             gComponentText = getRandomInt(127, 255),
             bComponentText = getRandomInt(127, 255),
-            rComponentBackgr = 255 - rComponentText,
+            rComponentBackgr = 200,//255 - rComponentText,
             gComponentBackgr = 255 - gComponentText,
             bComponentBackgr = 255 - bComponentText;
         this.degree = degreeToTurn;
+        if(this.degree == 180){
+            this.degree = -180;
+        }
         this.radius = radius;
         this.jQueryDOMElement = element;
         this.jQueryDOMElement.css({
@@ -24,7 +27,7 @@ define('menu-item-class', ['jquery'], function($){
 
     MenuItem.prototype.checkPosition= function(){
         console.log(this.degree);
-        if(this.degree > 90){
+        if(Math.abs(this.degree) > 90){
             this.jQueryDOMElement.find('a').css({
                 'transform' : 'rotate(180deg)'
             });
@@ -34,19 +37,49 @@ define('menu-item-class', ['jquery'], function($){
         }
     };
     MenuItem.prototype.show = function(){
-        var transformString = 'translate(' + this.radius + 'px) rotate(' + (-this.degree) + 'deg)';
-        this.jQueryDOMElement.css({
+        var transformLeftString = 'translate(' + this.radius + 'px)',
+            transformTurnString = 'rotate(' + (-this.degree) + 'deg)',
+            self = this;
+        self.jQueryDOMElement.css({
             'width' : '150px',
             'z-index' : '1000',
-            '-webkit-transition' : '-webkit-transform 0.5s ease-out 0s',
-            '-moz-transition' : '-moz-transform 0.5s ease-out 0s',
-            '-ms-transition' : '-ms-transform 0.5s ease-out 0s',
-            '-o-transition' : '-o-transform 0.5s ease-out 0s',
-            'transform-origin' : (-this.radius) + 'px 50%',
-            'transform' : transformString
+            'transition' : 'all 200ms ease-out 0s',
+            'transform-origin' : (-self.radius) + 'px 50%',
+            'transform' : transformLeftString
         });
+        setTimeout(function(){
+            self.jQueryDOMElement.css({
+                'transform-origin' : (-self.radius) + 'px 50%',
+                'transition' : 'all 500ms ease-out 0s',
+                'transform' : transformLeftString  + transformTurnString
+            });
 
+        }, 500);
     };
+    MenuItem.prototype.unShow = function(){
+        var transformLeftString = 'translate(' + this.radius + 'px)',
+            transformTurnString = 'rotate(' + (-this.degree) + 'deg)',
+            self = this;
+        self.jQueryDOMElement.css({
+            'width' : '150px',
+            'z-index' : '1000',
+            'transition' : 'all 500ms ease-out 0s',
+            'transform-origin' : (-self.radius) + 'px 50%',
+            'transform' : transformLeftString
+        });
+        setTimeout(function(){
+            self.jQueryDOMElement.css({
+                'transform-origin' : (-self.radius) + 'px 50%',
+                'transition' : 'all 200ms ease-out 0s',
+                'width' : '0',
+                'z-index' : 'auto',
+                'transform' : 'undefined'
+//                'transform' : transformLeftString
+            });
+
+        }, 500);
+    };
+
     MenuItem.prototype.restoreDefaults = function(){
         var self = this.jQueryDOMElement;
         self.css({

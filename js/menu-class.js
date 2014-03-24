@@ -16,8 +16,6 @@ define('menu-class', ['jquery', 'menu-item-class'], function($, MenuItem){
         for(i = 0; i < items.length; i++){
             this.items.push(new MenuItem(degreeToTurn*(i), circleRadius, items.eq(i)));
         }
-
-
     };
     Menu.prototype.createMenuItem = function(){
         var menuItem = new MenuItem(50, {});
@@ -29,7 +27,7 @@ define('menu-class', ['jquery', 'menu-item-class'], function($, MenuItem){
     };
     Menu.prototype.restoreDefaults = function(){
         for(var i = 0; i < this.items.length; i++){
-            this.items[i].restoreDefaults();
+            this.items[i].unShow();
         }
     };
 

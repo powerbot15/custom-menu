@@ -6,6 +6,7 @@ define(['jquery', 'menu-class'], function($, Menu){
         clickCounter++;
         if(clickCounter % 2 == 0){
             menu.restoreDefaults();
+
         }
         else{
             menu.animate();
